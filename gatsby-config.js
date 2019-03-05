@@ -13,6 +13,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "pokedex",
+        // This is field under which it's accessible
+        fieldName: "pokedex",
+        // Url to query from
+        url: "https://graphql-pokemon.now.sh",
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
