@@ -1,8 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
@@ -12,8 +12,6 @@ const IndexPage = ({ data }) => (
     <div className="conteiner">
       <div className="row">
         {data.pokedex.pokemons.map(pokemon => {
-          // console.log(pokemon.evolutions)
-
           return (
             <div
               key={pokemon.id}
@@ -23,7 +21,13 @@ const IndexPage = ({ data }) => (
                 <img src={pokemon.image} alt="" />
                 <div className="card-body text-center">
                   <h4>{pokemon.name}</h4>
-                  <h6>XXX</h6>
+                  <h7>
+                    {pokemon.evolutions !== null
+                      ? pokemon.evolutions.map(evolutions => {
+                          return <span>Evolutions: {evolutions.name}</span>
+                        })
+                      : null}
+                  </h7>
                 </div>
               </div>
             </div>
