@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => (
           return (
             <div
               key={pokemon.id}
-              className="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto my-4"
+              className="col-10 col-sm-8 col-md-6 col-lg-3 mx-auto my-4"
             >
               <a
                 href={`/pokemon/${pokemon.name}`}
