@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-
+// import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
@@ -21,13 +21,17 @@ const IndexPage = ({ data }) => (
                 <img src={pokemon.image} alt="" />
                 <div className="card-body text-center">
                   <h4>{pokemon.name}</h4>
-                  <h7>
+                  <span>
                     {pokemon.evolutions !== null
                       ? pokemon.evolutions.map(evolutions => {
-                          return <span>Evolutions: {evolutions.name}</span>
+                          return (
+                            <span key={evolutions.id}>
+                              Evolutions: {evolutions.name}
+                            </span>
+                          )
                         })
                       : null}
-                  </h7>
+                  </span>
                 </div>
               </div>
             </div>
